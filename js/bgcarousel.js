@@ -1,34 +1,34 @@
-/* Background Image Carousel
-* Created: Jan 17th, 2012 by DynamicDrive.com. This notice must stay intact for usage 
-* Author: Dynamic Drive at http://www.dynamicdrive.com/
-* Visit http://www.dynamicdrive.com/ for full source code
+/* Carrossel de imagens de fundo
+* Criado: 17 de janeiro de 2012 por DynamicDrive.com. Este aviso deve permanecer intacto para uso
+* Autor: Dynamic Drive em http://www.dynamicdrive.com/
+* Visite http://www.dynamicdrive.com/ para obter o código-fonte completo
 */
 
-//** Modified Jan 23th, 12'- Fixed bug with auto rotate bug in "manual" mode
-//** Modified Feb 21st, 12'- Fixed bug with carousel not always initializing in IE8 and less
-//** Modified June 26th, 14 to v1.1': Flexible carousel dimensions now supported, swipe to navigate added, plus other minor enhancements.
-//** Modified June 27th, 14: Fixed nav buttons fade in/out issue
+//** Modificado em 23 de janeiro, 12'- Corrigido o erro com o erro de rotação automática no modo "manual"
+//** Modificado em 21 de fevereiro, 12'- Corrigido bug com carrossel nem sempre inicializando no IE8 e menos
+//** Modificado em 26 de junho de 14 para v1.1': agora há suporte para dimensões flexíveis de carrossel, deslize para navegar adicionado, além de outros pequenos aprimoramentos.
+//** Modificado em 27 de junho de 14: Corrigido o problema de fade in/out dos botões de navegação
 
 jQuery.noConflict()
 
-function bgCarousel(options){
+function bgCarousel(opções){
 	var $=jQuery
-	this.setting={displaymode:{type:'auto', pause:2000, stoponclick:false, cycles:2, pauseonmouseover:true}, activeslideclass:'selectedslide', orientation:'h', persist:true, slideduration:500} //default settings
-	jQuery.extend(this.setting, options) //merge default settings with options
-	this.setting.displaymode.pause+=400+this.setting.slideduration // 400ms is default fade in time
+	this.setting={displaymode:{type:'auto', pause:2000, stoponclick:false, cycles:2, pauseonmouseover:true}, activeslideclass:'selectedslide', orientação:'h', persist:true, slideduration:500 } //configurações padrão
+	jQuery.extend(this.setting, options) //mesclar configurações padrão com opções
+	this.setting.displaymode.pause+=400+this.setting.slideduration // 400ms é o fade in time padrão
 	var curslide=(this.setting.persist)? bgCarousel.routines.getCookie("slider-"+this.setting.wrapperid) : 0
-	this.curslide=(curslide==null || curslide>this.setting.imagearray.length-1)? 0 : parseInt(curslide) //make sure curslide index is within bounds
+	this.curslide=(curslide==null || curslide>this.setting.imagearray.length-1)? 0 : parseInt(curslide) //verifica se o índice do curslide está dentro dos limites
 	this.curstep=0
-	this.animation_isrunning=false //variable to indicate whether an image is currently being slided in
-	this.posprop=(this.setting.orientation=="h")? "left" : "top"
-	options=null
+	this.animation_isrunning=false //variável para indicar se uma imagem está sendo deslizada no momento
+	this.posprop=(this.setting.orientation=="h")? "esquerda" : "topo"
+	opções=nulo
 	var slideshow=this, setting=this.setting, preloadimages=[], imagesloaded=0, slidesHTML=''
-	for (var i=0, max=setting.imagearray.length; i<max; i++){ //preload images
-		preloadimages[i]=new Image()
+	for (var i=0, max=setting.imagearray.length; i<max; i++){ //pré-carregar imagens
+		preloadimages[i]=nova Imagem()
 		$(preloadimages[i]).bind('load error', function(){
-			imagesloaded++
-			if (imagesloaded==max){ //when all images have preloaded
-		$(function(){ //on document.ready
+			imagens carregadas++
+			if (imagesloaded==max){ //quando todas as imagens forem pré-carregadas
+		$(function(){ //em document.ready
 			slideshow.init($, slidesHTML)
 		})
 			}
@@ -37,33 +37,33 @@ function bgCarousel(options){
 		slidesHTML+=bgCarousel.routines.getSlideHTML(setting, setting.imagearray[i], '100%', '100%', this.posprop)+'\n'
 	}
 
-	function positioncontrols($controls){
+	função positioncontrols($controls){
 		var winwidth = $(window).outerWidth(),
 				winheight = $(window).outerHeight(),
 				controlwidth = $controls.eq(0).width(),
 				controlheight = $controls.eq(0).height(),
 				controltop, controlleft
 				
-		if (setting.orientation == 'h'){
+		if (configuração.orientação == 'h'){
 			controltop = (setting.dimensions[1] > winheight)? winheight/2 : '50%'
 			$controls.css({top: controltop, marginTop: -controlheight/2})
 		}
-		else if (setting.orientation == 'v'){
-			controlleft = (setting.dimensions[0] > winwidth)? winwidth/2 : '50%'
+		senão if (configuração.orientação == 'v'){
+			controlleft = (setting.dimensions[0] > winwidth)? winwidth/2: '50%'
 			$controls.css({left: controlleft, marginLeft: -controlwidth/2})
 		}
 	}
 	this.positioncontrols = positioncontrols
 
-	$(window).bind('unload', function(){ //on window onload
-		if (slideshow.setting.persist) //remember last shown slide's index?
+	$(window).bind('unload', function(){ //no carregamento da janela
+		if (slideshow.setting.persist) //lembra o índice do último slide mostrado?
 			bgCarousel.routines.setCookie("slider-"+setting.wrapperid, slideshow.curslide)
 	})
 
 	$(window).bind('resize', function(){
-		if (setting.dimensions){
+		if (configuração.dimensões){
 			setting.dimensions=[slideshow.$wrapperdiv.width(), slideshow.$wrapperdiv.height()]
-			positioncontrols(slideshow.$controls)
+			positioncontrols(apresentação de slides.$controls)
 		}
 	})
 
@@ -71,55 +71,57 @@ function bgCarousel(options){
 
 bgCarousel.prototype={
 
-	slide:function(nextslide, dir){ //possible values for dir: "left", "right", "top", or "down"
+	slide:function(nextslide, dir){ //valores possíveis para dir: "left", "right", "top" ou "down"
 		if (this.curslide==nextslide)
-			return
+			Retorna
 		var slider=this, setting=this.setting
 		var createobj=bgCarousel.routines.createobj
 		var nextslide_initialpos=setting.dimensions[(dir=="right"||dir=="left")? 0 : 1] * ((dir=="right"||dir=="down")? -1 : 1)
 		var curslide_finalpos=-nextslide_initialpos
 		var posprop=this.posprop
 		if (this.animation_isrunning!=null)
-			this.animation_isrunning=true //indicate animation is running
-		this.$imageslides.eq(nextslide).show().css(createobj([posprop, nextslide_initialpos], ['opacity', 0.5])) //show upcoming slide
+			this.animation_isrunning=true //indica que a animação está em execução
+		this.$imageslides.eq(nextslide).show().css(createobj([posprop, nextslide_initialpos], ['opacity', 0.5])) //mostra o próximo slide
 			.stop().velocity(createobj([posprop, 0]), setting.slideduration, function(){
 				var $this=jQuery(this)
+				$this.addClass(setting.activeslideclass).velocity({opacity:1})
+				.find('div.desc').stop().velocity({top:slider.descoffsettop, opacity: 1})
 				slider.animation_isrunning=false
 			})
-			.find('div.desc').css({top: '-=100%', opacity: 0})
+			.find('div.desc').css({top: '-=100%', opacidade: 0})
 
 		this.$imageslides.eq(this.curslide)
 			.removeClass(setting.activeslideclass)
 			.stop().velocity(createobj([posprop, curslide_finalpos]), setting.slideduration, function(){
 					var $this=jQuery(this)
 					$this.hide()
-			}) //hide outgoing slide
+			}) //oculta o slide de saída
 
 		this.curslide=nextslide
 	},
 
-	navigate:function(keyword){ //keyword: "back" or "forth"
+	navegue:função(palavra-chave){ //palavra-chave: "voltar" ou "avançar"
 		var slideshow=this, setting=this.setting
 		clearTimeout(this.rotatetimer)
-		if (!setting.displaymode.stoponclick && setting.displaymode.type!="manual"){ //if slider should continue auto rotating after nav buttons are clicked on
-			this.curstep=(keyword=="back")? this.curstep-1 : this.curstep+1 //move curstep counter explicitly back or forth depending on direction of slide
+		if (!setting.displaymode.stoponclick && setting.displaymode.type!="manual"){ //se o controle deslizante deve continuar girando automaticamente após os botões de navegação serem clicados
+			this.curstep=(keyword=="voltar")? this.curstep-1 : this.curstep+1 //move o contador de curstep explicitamente para trás ou para frente dependendo da direção do slide
 			this.rotatetimer=setTimeout(function(){slideshow.rotate()}, setting.displaymode.pause)
 		}
-		var dir=(keyword=="back")? (setting.orientation=="h"? "right" : "down") : (setting.orientation=="h"? "left" : "up")	
-		var targetslide=(keyword=="back")? this.curslide-1 : this.curslide+1
-		targetslide=(targetslide<0)? this.$imageslides.length-1 : (targetslide>this.$imageslides.length-1)? 0 : targetslide //wrap around
+		var dir=(palavra-chave=="voltar")? (setting.orientation=="h"? "right" : "down") : (setting.orientation=="h"? "left" : "up")	
+		var targetslide=(keyword=="voltar")? this.curslide-1 : this.curslide+1
+		targetslide=(targetslide<0)? this.$imageslides.length-1 : (targetslide>this.$imageslides.length-1)? 0 : targetslide //envolvendo
 		if (this.animation_isrunning==false)
 			this.slide(targetslide, dir)
 	},
 
-	rotate:function(){
+	girar:função(){
 		var slideshow=this, setting=this.setting
-		if (this.ismouseover){ //pause slideshow onmouseover
+		if (this.ismouseover){ //pausa a apresentação de slides ao passar o mouse
 			this.rotatetimer=setTimeout(function(){slideshow.rotate()}, setting.displaymode.pause)
-			return
+			Retorna
 		}
 		var nextslide=(this.curslide<this.$imageslides.length-1)? this.curslide+1 : 0
-		this.slide(nextslide, this.posprop) //go to next slide, either to the left or upwards depending on setting.orientation setting
+		this.slide(nextslide, this.posprop) // vai para o próximo slide, para a esquerda ou para cima, dependendo da configuração de configuração.orientação
 		if (setting.displaymode.cycles==0 || this.curstep<this.maxsteps-1){
 			this.rotatetimer=setTimeout(function(){slideshow.rotate()}, setting.displaymode.pause)
 			this.curstep++
@@ -130,34 +132,34 @@ bgCarousel.prototype={
 		var slideshow=this, setting=this.setting
 		this.$wrapperdiv=$('#'+setting.wrapperid)
 		setting.dimensions=[this.$wrapperdiv.width(), this.$wrapperdiv.height()]
-		this.$wrapperdiv.css({position:'relative', visibility:'visible', overflow:'hidden', backgroundImage:'none'})
-		if (this.$wrapperdiv.length==0){ //if no wrapper DIV found
-			alert("Error: DIV with ID \""+setting.wrapperid+"\" not found on page.")
-			return
+		this.$wrapperdiv.css({position:'relative', visible:'visible', overflow:'hidden', backgroundImage:'none'})
+		if (this.$wrapperdiv.length==0){ //se nenhum DIV wrapper encontrado
+			alert("Erro: DIV com ID \""+setting.wrapperid+"\" não encontrado na página.");
+			Retorna
 		}
 		this.$wrapperdiv.html(slidesHTML)
 		this.$imageslides=this.$wrapperdiv.find('div.slide').hide()
 		this.descoffsettop = this.$imageslides.eq(0).find('div.desc').css('top')
 		this.$imageslides.eq(this.curslide).show()
-			.css(bgCarousel.routines.createobj(['opacity', 0.5], [this.posprop, 0])) //set current slide's CSS position (either "left" or "top") to 0
+			.css(bgCarousel.routines.createobj(['opacity', 0.5], [this.posprop, 0])) // define a posição CSS do slide atual (ou "esquerda" ou "topo") como 0
 			.addClass(setting.activeslideclass)
 			.stop().velocity({opacity:1})
 			.find('div.desc').css({top: '-=100%', opacity: 0}).velocity({top:this.descoffsettop, opacity: 1})
-		var orientation=setting.orientation
-		var controlpaths=(orientation=="h")? setting.navbuttons.slice(0, 2) : setting.navbuttons.slice(2)
-		var $controls =  $('<img class="navbutton" src="'+controlpaths[1]+'" data-dir="forth" style="position:absolute; z-index:5; cursor:pointer; ' + (orientation=='v'? 'bottom:8px; left:46%' : 'top:46%; right:8px;') + '" />'
-			+ '<img class="navbutton" src="'+controlpaths[0]+'" data-dir="back" style="position:absolute;z-index:5; cursor:pointer; ' + (orientation=='v'? 'top:8px; left:45%' : 'top:45%; left:8px;') + '" />'
+		var orientação=configuração.orientação
+		var caminhos de controle=(orientação=="h")? setting.navbuttons.slice(0, 2) : setting.navbuttons.slice(2)
+		var $controls = $('<img class="navbutton" src="'+controlpaths[1]+'" data-dir="forth" style="position:absolute; z-index:5; cursor:pointer; ' + (orientation=='v'? 'bottom:8px; left:46%' : 'top:46%; right:8px;') + '" />'
+			+ '<img class="navbutton" src="'+controlpaths[0]+'" data-dir="back" style="position:absolute;z-index:5; cursor:pointer; ' + (orientation= ='v'? 'topo:8px; esquerda:45%' : 'topo:45%; esquerda:8px;') + '" />'
 		)
 		.css({opacity:0})
 		.click(function(){
-			var keyword = this.getAttribute('data-dir')
-			setting.curslide = (keyword == "right")? (setting.curslide == setting.content.length-1? 0 : setting.curslide + 1)
+			var palavra-chave = this.getAttribute('data-dir')
+			setting.curslide = (palavra-chave == "certo")? (setting.curslide == setting.content.length-1? 0 : setting.curslide + 1)
 				: (setting.curslide == 0? setting.content.length-1 : setting.curslide - 1)
-			slideshow.navigate(keyword)
+			slideshow.navigate(palavra-chave)
 		})
 		this.$controls = $controls.appendTo(this.$wrapperdiv)
 		this.positioncontrols(this.$controls)
-		if (setting.displaymode.type=="auto"){ //auto slide mode?
+		if (setting.displaymode.type=="auto"){ //modo de slide automático?
 			setting.displaymode.pause+=setting.slideduration
 			this.maxsteps=setting.displaymode.cycles * this.$imageslides.length
 			if (setting.displaymode.pauseonmouseover){
@@ -167,28 +169,28 @@ bgCarousel.prototype={
 			this.rotatetimer=setTimeout(function(){slideshow.rotate()}, setting.displaymode.pause)
 		}
 
-		var swipeOptions={ // swipe object variables
+		var swipeOptions={ // desliza as variáveis ​​do objeto
 			triggerOnTouchEnd : true,
 			triggerOnTouchLeave : true,
-			allowPageScroll: setting.orientation == 'h'? "vertical" : "horizontal",
-			swipethreshold: setting.swipethreshold,
-			excludedElements:[]
+			allowPageScroll: setting.orientation == 'h'? "vertical Horizontal",
+			swipethreshold: configuração.swipethreshold,
+			Elementos excluídos:[]
 		}
 
-		swipeOptions.swipeStatus = function(event, phase, direction, distance){
-			if (phase == 'start' && event.target.tagName == 'A'){ // cancel A action when finger makes contact with element
+		swipeOptions.swipeStatus = function(evento, fase, direção, distância){
+			if (phase == 'start' && event.target.tagName == 'A'){ // cancela Uma ação quando o dedo faz contato com o elemento
 				evtparent.onclick = function(){
-					return false
+					retorna falso
 				}
 			}
-			if (phase == 'cancel' && event.target.tagName == 'A'){ // if swipe action canceled (so no proper swipe), enable A action
+			if (phase == 'cancel' && event.target.tagName == 'A'){ // se a ação de passar o dedo for cancelada (portanto, não é necessário passar o dedo), habilitar A ação
 				evtparent.onclick = function(){
-					return true
+					retornar verdadeiro
 				}
 			}
-			if (phase == 'end'){
-				var navkeyword = /(right)|(down)/i.test(direction)? 'back' : 'forth'
-				if ( (setting.orientation == 'h' && /(left)|(right)/i.test(direction)) || (setting.orientation == 'v' && /(up)|(down)/i.test(direction)) )
+			if (fase == 'fim'){
+				var navkeyword = /(direita)|(baixo)/i.test(direção)? 'voltar': 'avançar'
+				if ( (configuração.orientação == 'h' && /(esquerda)|(direita)/i.test(direção)) || (configuração.orientação == 'v' && /(cima)|(baixo)/i .test(direção)) )
 					slideshow.navigate(navkeyword)
 			}
 		}
@@ -197,14 +199,14 @@ bgCarousel.prototype={
 			this.$wrapperdiv.swipe(swipeOptions)
 		}
 
-		this.$wrapperdiv.bind('mouseenter click', function(){
-			if (slideshow.$controls && slideshow.$controls.length == 2){
-				slideshow.$controls.stop().velocity({opacity: 1})
+		this.$wrapperdiv.bind('clique do mouse', function(){
+			if (apresentação de slides.$controles && apresentação de slides.$controles.comprimento == 2){
+				apresentação de slides.$controls.stop().velocity({opacity: 1})
 			}
 		})
 	
 		this.$wrapperdiv.bind('mouseleave', function(){
-			if (slideshow.$controls && slideshow.$controls.length == 2){
+			if (apresentação de slides.$controles && apresentação de slides.$controles.comprimento == 2){
 				slideshow.$controls.stop().velocity({opacity: 0}, 'fast')
 			}
 		})
@@ -215,28 +217,28 @@ bgCarousel.prototype={
 bgCarousel.routines={
 
 	getSlideHTML:function(setting, imgref, w, h, posprop){
-		var posstr=posprop+":"+((posprop=="left")? w : h)
-		return '<div class="slide" style="background-image:url(' + imgref[0] + '); position:absolute;'+posstr+';width:'+w+'; height:'+h+';">'
+		var posstr=posprop+":"+((posprop=="esquerda")? w : h)
+		return '<div class="slide" style="background-image:url(' + imgref[0] + '); position:absolute;'+posstr+';width:'+w+'; height:'+h+' ;">'
 							+ ((imgref[1])? '<div class="desc">' + imgref[1] + '</div>\n' : '')
-							+	'</div>'
+							+ '</div>'
 	},
 
-	getCookie:function(Name){ 
-		var re=new RegExp(Name+"=[^;]+", "i"); //construct RE to search for target name/value pair
-		if (document.cookie.match(re)) //if cookie found
-			return document.cookie.match(re)[0].split("=")[1] //return its value
-		return null
+	getCookie:função(Nome){
+		var re=new RegExp(Nome+"=[^;]+", "i"); //construir RE para procurar o par nome/valor do alvo
+		if (document.cookie.match(re)) //se o cookie for encontrado
+			return document.cookie.match(re)[0].split("=")[1] //retorna seu valor
+		retornar nulo
 	},
 
-	setCookie:function(name, value){
-		document.cookie = name+"=" + value + ";path=/"
+	setCookie:função(nome, valor){
+		document.cookie = nome+"=" + valor + ";caminho=/"
 	},
 
 	createobj:function(){
 		var obj={}
-		for (var i=0; i<arguments.length; i++){
-			obj[arguments[i][0]]=arguments[i][1]
+		for (var i=0; i<argumentos.comprimento; i++){
+			obj[argumentos[i][0]]=argumentos[i][1]
 		}
-		return obj
+		retornar obj
 	}
 }
