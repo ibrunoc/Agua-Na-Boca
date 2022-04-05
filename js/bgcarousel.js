@@ -9,7 +9,7 @@
 //** Modified June 26th, 14 to v1.1': Flexible carousel dimensions now supported, swipe to navigate added, plus other minor enhancements.
 //** Modified June 27th, 14: Fixed nav buttons fade in/out issue
 
-jQuery.noConflict()
+$.noConflict();
 
 function bgCarousel(options){
 	var $=jQuery
