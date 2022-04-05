@@ -12,7 +12,7 @@
 jQuery.noConflict()
 
 function bgCarousel(options){
-	$ = jQuery
+	var $=jQuery
 	this.setting={displaymode:{type:'auto', pause:2000, stoponclick:false, cycles:2, pauseonmouseover:true}, activeslideclass:'selectedslide', orientation:'h', persist:true, slideduration:500} //default settings
 	jQuery.extend(this.setting, options) //merge default settings with options
 	this.setting.displaymode.pause+=400+this.setting.slideduration // 400ms is default fade in time
