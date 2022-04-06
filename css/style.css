@@ -10,6 +10,7 @@
 }
 
 html,body{
+    max-width: 3840px;
 	width: 100%;
     background-color: #E5E5E5;
     scroll-behavior: smooth;
@@ -136,13 +137,30 @@ header nav{
     transition-delay: 1ms;
 }
   
-.carrossel-capa-button {
-    position: absolute;
+.prev {
+    position: relative;
     z-index: 2;
+    float: left;
     background: none;
     border: none;
     font-size: 4rem;
-    top: 35%;
+    margin-top: 350px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem;
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  .next {
+    position: relative;
+    z-index: 2;
+    background: none;
+    border: none;
+    float: right;
+    font-size: 4rem;
+    margin-top: 350px;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, .5);
     cursor: pointer;
