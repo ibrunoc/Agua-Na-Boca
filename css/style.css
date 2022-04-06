@@ -95,6 +95,12 @@ header nav{
     transition: all 0.5s;
 }
 
+.capa{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
 .carrossel-capa {
     width: 100%;
     height: 100vh;
@@ -119,7 +125,7 @@ header nav{
 .slide-capa > img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 900px;
     object-fit: cover;
     object-position: center;
 }
@@ -127,7 +133,7 @@ header nav{
 .slide-capa[data-active] {
     opacity: 1;
     z-index: 1;
-    transition-delay: 0ms;
+    transition-delay: 1ms;
 }
   
 .carrossel-capa-button {
@@ -136,7 +142,7 @@ header nav{
     background: none;
     border: none;
     font-size: 4rem;
-    top: 50%;
+    top: 35%;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, .5);
     cursor: pointer;
@@ -156,13 +162,6 @@ header nav{
 .carrossel-capa-button.prev {left: 1px;}
   
 .carrossel-capa-button.next {right: 1px;}
-
-.capa{
-    position: relative;
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-}
 
 .texto-capa{
     position: absolute;
