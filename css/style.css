@@ -527,6 +527,7 @@ header nav{
     height: 550px;
     margin: auto;
     border-radius: 20px;
+    border: 1px solid black !important;
 }
 
 footer{
