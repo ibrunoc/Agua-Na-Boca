@@ -253,6 +253,7 @@ header nav{
 .pizza-salgada{
     margin-top: 70px;
     background: #E5E5E5;
+    padding: 0 15%;
 }
 
 .pizza-salgada h2{
@@ -293,6 +294,7 @@ header nav{
 .pizza-doce{
     margin: 0px auto;
     background-color: white;
+    padding: 0 15%;
 }
 
 .pizza-doce h2{
@@ -327,6 +329,7 @@ header nav{
 .sorvete{
     margin: 20px auto;
     background-color: #E5E5E5;
+    padding: 0 15%;
 }
 
 .sorvete h2{
@@ -375,6 +378,7 @@ header nav{
 }
 
 .botao{
+    clear: both;
     width: 100%;
     padding-bottom: 20px;
 }
@@ -456,7 +460,7 @@ header nav{
 .sessao-quem-somos p{
     font-family: 'Heebo';
     font-size: 30px;
-    padding: 50px 10%;
+    padding: 50px 20%;
     color: white;
 }
 
@@ -468,6 +472,7 @@ header nav{
 .contato{
     width: 100%;
     height: auto;
+    padding: 0 12%;
 	background-color: #E5E5E5;
 }
 
