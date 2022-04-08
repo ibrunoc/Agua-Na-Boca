@@ -7,10 +7,10 @@
     font-family: 'Heebo';
     font-family: 'Itim';
     font-family: 'Shadows Into Light';
+    max-width: 3480px;
 }
 
 html,body{
-    max-width: 3840px;
 	width: 100%;
     background-color: #E5E5E5;
     scroll-behavior: smooth;
