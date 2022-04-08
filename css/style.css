@@ -698,65 +698,6 @@ footer img{
 }
 
 @media screen and (max-width: 480px){
-    .hamburger {
-        display: block;
-        padding:  0 1%;
-    }    
-    
-    .mobile{   
-        float: right;
-        margin: 7px 10% 0 2%;
-        display: block;  
-        z-index: 3;
-    }
-
-    .desktop{display: none;}
-    
-    .navbar{
-        width: 100%;
-        top: 0;
-    }
-
-    .hamburger.active .bar:nth-child(2){
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1){
-        transform: translateY(10px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3){
-        transform: translateY(-10px) rotate(-45deg);
-    }
-
-    .nav-menu.active{right: 0;}
-
-    .nav-menu{
-        position: fixed;
-        right: -100%;
-        top: 107px;
-        background-color: white;
-        width: 100%;
-        transition: 0.3s;
-        list-style-type: none;
-    }
-
-    .nav-link{
-        margin: auto;
-        color: black;
-        font-family: 'Heebo';
-        font-size: 16px;
-        text-decoration: none;
-    }
-
-    .nav-link:hover{font-size: 24px; color: #F64033;}
-    
-    .nav-item{
-        width: 92%;
-        margin: 10px 0;
-        border-bottom: black 1px solid;        
-    }
-
     .texto-capa{
         width: 75%;
         margin: 50% 12.5%;
