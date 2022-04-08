@@ -428,6 +428,7 @@ header nav{
 
 .depoimentos h2{
     width: 35%;
+    padding: 0 10%;
     margin: auto;
     font-family: 'Heebo';
     padding-top: 60px;
@@ -649,6 +650,11 @@ footer img{
         margin: 10px 0;
         border-bottom: black 1px solid;        
     }
+
+    .nav-item a{color: black;}
+
+    .nav-item a:hover{color: #19BD4B;}
+
     .desktop{display: none;}
 
 
@@ -766,6 +772,4 @@ footer img{
     .peca-ifood {width: 85%; font-size: 14px;} 
 }
 
-@media screen and (max-width: 306px) {
-    footer p{font-size: 13px;}    
-}
+@media screen and (max-width: 306px) {footer p{font-size: 13px;}}
