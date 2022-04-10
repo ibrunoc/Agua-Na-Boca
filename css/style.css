@@ -106,7 +106,7 @@ header nav{
     position: relative;
     width: 100%;
     height: 900px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 .carrossel {
@@ -236,6 +236,33 @@ header nav{
     color: #19BD4B;
     background-color: white;
     border: 1px solid #19BD4B;
+}
+
+.quem-somos{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.sessao-quem-somos h2{
+    margin: auto;
+    padding-top: 60px;
+    font-size: 60px;
+    color: #19BD4B;
+}
+
+.sessao-quem-somos p{
+    font-family: 'Heebo';
+    font-size: 30px;
+    padding: 30px 20%;
+    color: black;
+}
+
+.img-quem-somos{
+    width: 42%;
+    margin: 0 auto 50px auto;   
+    max-width: 750px;
 }
 
 .cardapio{
@@ -455,32 +482,6 @@ header nav{
     margin-bottom: 180px;
 }
 
-.quem-somos{
-    width: 100%;
-    height: auto;
-    background-color: #1B1A19;
-}
-
-.sessao-quem-somos h2{
-    margin: auto;
-    padding-top: 60px;
-    font-size: 60px;
-    color: #19BD4B;
-}
-
-.sessao-quem-somos p{
-    font-family: 'Heebo';
-    font-size: 30px;
-    padding: 30px 20%;
-    color: white;
-}
-
-.img-quem-somos{
-    width: 42%;
-    margin: 0 auto 50px auto;   
-    max-width: 750px;
-}
-
 .contato{
     width: 100%;
     height: auto;
@@ -544,7 +545,7 @@ header nav{
     height: 550px;
     margin: auto;
     border-radius: 20px;
-    border: 1px solid black !important;
+    border: 2px solid black !important;
 }
 
 footer{
@@ -657,8 +658,6 @@ footer img{
 
     .desktop{display: none;}
 
-
-
     .texto-capa{
         width: 75%;
         margin: 33% 12.5%;
@@ -683,9 +682,9 @@ footer img{
         font-size: 27px;
     }
 
-    .sessao-quem-somos h2{font-size: 40px;}
+    .sessao-quem-somos h2{font-size: 45px;}
     
-    .sessao-quem-somos p{font-size: 25px;}
+    .sessao-quem-somos p{font-size: 22px;}
 
     .img-quem-somos{
         width: 80%;
@@ -772,4 +771,4 @@ footer img{
     .peca-ifood {width: 85%; font-size: 14px;} 
 }
 
-@media screen and (max-width: 306px) {footer p{font-size: 13px;}}
+@media screen and (max-width: 306px){footer p{font-size: 13px;}}
