@@ -263,6 +263,7 @@ header nav{
     width: 42%;
     margin: 0 auto 50px auto;   
     max-width: 750px;
+    border-radius: 20px;
 }
 
 .cardapio{
