@@ -1,6 +1,7 @@
 <h1 align="center">
   Água Na Boca
 </h1>
+<h5 align="center">Data de criação do projeto: 4 de Abril de 2022</h5>
 
 <p align="center">"A pizza que vai deixar você com água na boca!"</blockquote>
 
@@ -27,7 +28,8 @@ Site desenvolvido por mim no curso do instituto Proa, Projeto individual criando
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Git](https://git-scm.com/docs)
-- [VS Code](https://code.visualstudio.com/).
+- [VS Code](https://code.visualstudio.com/)
+- [Figma](https://figma.com/)
 
 ## Como Usar O Projeto
 Para clonar e executar este aplicativo, você precisará do [Git](https://git-scm.com), instalado em seu computador.
