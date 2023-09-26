@@ -16,12 +16,6 @@ Site desenvolvido por mim no curso do instituto Proa, Projeto individual criando
 
 <br />
 
-<p align="center">
-  <a href="#Tecnologias-Usadas">Tecnologias Usadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#Como-Usar-O-Projeto">Como Usar O Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#Resultado-Final">Resultado Final</a>
-</p>
-
 ## Tecnologias Usadas
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
@@ -31,22 +25,8 @@ Site desenvolvido por mim no curso do instituto Proa, Projeto individual criando
 - [VS Code](https://code.visualstudio.com/)
 - [Figma](https://figma.com/)
 
-## Como Usar O Projeto
-Para clonar e executar este aplicativo, você precisará do [Git](https://git-scm.com), instalado em seu computador.
-
-```bash
-# Clone esse repositório
-$ git clone https://github.com/ibrunoc/Agua-Na-Boca.git
-
-# Abra o repositório
-
-# Abra o .html para ver o projeto
-```
-
 <div align="center">
   <h2><a href="https://agua-na-boca.vercel.app/">LINK DO PROJETO</a></h2>
 </div>
-
-## Resultado Final
 
 ![Screenshot_2](https://user-images.githubusercontent.com/68878579/163184622-0659205a-e34c-4d8a-ae89-e161627c49f8.png)
