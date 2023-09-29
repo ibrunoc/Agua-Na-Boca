@@ -22,8 +22,6 @@ Site desenvolvido por mim no curso do instituto Proa, Projeto individual criando
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Git](https://git-scm.com/docs)
-- [VS Code](https://code.visualstudio.com/)
-- [Figma](https://figma.com/)
 
 <div align="center">
   <h2><a href="https://agua-na-boca.vercel.app/">LINK DO PROJETO</a></h2>
